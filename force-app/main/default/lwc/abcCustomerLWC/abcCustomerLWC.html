@@ -1,0 +1,75 @@
+<template>
+  <div class="slds-align_absolute-center">
+    <span style="margin-top: 50px">
+      <lightning-icon
+        icon-name="action:new_note"
+        alternative-text="Complete The Profile"
+        title="Complete The Profile"
+      >
+      </lightning-icon>
+      <span>&nbsp;&nbsp;&nbsp; Complete Your Profile </span><br /><br />
+    </span>
+  </div>
+  <div class="slds-box">
+    <lightning-input
+      type="text"
+      label="First Name"
+      value={customer.First_Name__c}
+      disabled
+    ></lightning-input>
+    <lightning-input
+      type="text"
+      label="Last Name"
+      value={customer.Last_Name__c}
+      disabled
+    ></lightning-input>
+    <lightning-input
+      type="email"
+      label="Email"
+      value={customer.Email__c}
+      disabled
+    ></lightning-input>
+    <lightning-input
+      type="tel"
+      label="Phone Number"
+      value={customer.Phone_Number__c}
+      onchange={handlePhone}
+      required="true"
+    ></lightning-input>
+    <lightning-input
+      onchange={handleDOB}
+      type="date"
+      label="Date of Birth"
+      value={customer.Date_of_Birth__c}
+      required="true"
+    ></lightning-input>
+    <lightning-combobox
+      name="shoeSize"
+      label="Shoe Size"
+      value={customer.Shoe_Size__c}
+      options={showSizePicklistValues}
+      onchange={handleShoeSizeChange}
+      required="true"
+    >
+    </lightning-combobox>
+    <lightning-combobox
+      name="tshirtSize"
+      label="TShirt Size"
+      value={customer.TShirt_Size__c}
+      options={tshirtSizePicklistValues}
+      onchange={handleTShirtSize}
+      required="true"
+    >
+    </lightning-combobox>
+    <div class="slds-align_absolute-center">
+      <br /><br />
+      <lightning-button
+        name="Update"
+        label="Update"
+        type="submit"
+        onclick={handleClick}
+      >
+      </lightning-button>
+    </div>
+  </div>
+</template>
